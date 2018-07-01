@@ -20,7 +20,6 @@
         options.to = 0;
         options.startingHeight = element.scrollHeight;
         options.distanceHeight = -options.startingHeight;
-        element.style.display = 'block';
         setElementAnimationStyles(element);
         window.requestAnimationFrame((timestamp) => animate(element, options, timestamp));
     };
@@ -28,10 +27,9 @@
         if (isInteger(args)) {
             args = { duration: args };
         }
-        const options = extend(defaults, args);
-        element.style.display = 'block';
         element.style.height = '0px';
         setElementAnimationStyles(element);
+        const options = extend(defaults, args);
         options.direction = directions.OPEN;
         options.to = element.scrollHeight;
         options.startingHeight = 0;
@@ -60,6 +58,7 @@
         }
     };
     const setElementAnimationStyles = (element) => {
+        element.style.display = 'block';
         element.style.overflow = 'hidden';
         // element.style.marginTop = '0';
         // element.style.marginBottom = '0';
@@ -95,7 +94,6 @@
     };
 
     var targetElements = document.getElementsByClassName('panel');
-    console.log(targetElements);
     document.getElementById('slide-up').onclick = function () {
         var _iteratorNormalCompletion = true;
         var _didIteratorError = false;
