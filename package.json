@@ -1,0 +1,26 @@
+{
+  "name": "es6-scroll-to",
+  "version": "1.1.2",
+  "description": "Vanilla JavaScript micro function for animated scrolling written in ES6",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "repository": "https://github.com/janrembold/es6-scroll-to.git",
+  "author": "janrembold <janrembold@gmx.net>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "example": "tsc && rollup -c example/rollup.config.js"
+  },
+  "devDependencies": {
+    "babel-core": "6",
+    "babel-preset-env": "^1.7.0",
+    "es6-easings": "https://github.com/janrembold/es6-easings.git#master",
+    "rollup": "^0.61.2",
+    "rollup-plugin-babel": "^3.0.5",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-typescript": "^0.8.1",
+    "typescript": "^2.9.2"
+  }
+}

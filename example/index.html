@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>es6-slide-up-down plugin demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        }
+        .container {
+            height:560px;
+            padding: 20px;
+            background: #f0f9ff; 
+            background: -moz-linear-gradient(top, #f0f9ff 0%, #cbebff 47%, #3fb8ff 100%); 
+            background: -webkit-linear-gradient(top, #f0f9ff 0%,#cbebff 47%,#3fb8ff 100%); 
+            background: linear-gradient(to bottom, #f0f9ff 0%,#cbebff 47%,#3fb8ff 100%);
+        }
+        pre {
+            background: white;
+            padding: 10px;
+            border: 1px solid grey;
+            overflow: auto;
+        }
+        .content {
+            background: white;                        
+            padding: 10px;
+            border: 1px solid grey;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="slide-up">Slide Up</button>        
+        <button id="slide-down">Slide Down</button>        
+        <div class="panel">
+            <div class="content">
+                <h2>Some content here</h2>
+                <p>Lorem ipsum...</p>
+            </div>
+        </div>
+        <div class="panel">
+                <div class="content">
+                    <h2>Some content here</h2>
+                    <p>Lorem ipsum...</p>
+                </div>
+            </div>
+        <pre>
+// Defaults: duration: 400, easing: easeOutQuad
+animatedScrollTo(600);
+
+// ...equals to 
+animatedScrollTo({
+    to: 600
+});</pre>    
+        <div>GitHub: <a href="https://github.com/janrembold/es6-slide-up-down">https://github.com/janrembold/es6-slide-up-down</a></div>    
+    </div>
+        
+    <script src="bundle.js"></script>
+</body>
+</html>
