@@ -60,16 +60,16 @@
     const setElementAnimationStyles = (element) => {
         element.style.display = 'block';
         element.style.overflow = 'hidden';
-        // element.style.marginTop = '0';
-        // element.style.marginBottom = '0';
+        element.style.marginTop = '0';
+        element.style.marginBottom = '0';
         element.style.paddingTop = '0';
         element.style.paddingBottom = '0';
     };
     const removeElementAnimationStyles = (element) => {
         element.style.height = null;
         element.style.overflow = null;
-        // element.style.marginTop = null;
-        // element.style.marginBottom = null;
+        element.style.marginTop = null;
+        element.style.marginBottom = null;
         element.style.paddingTop = null;
         element.style.paddingBottom = null;
     };
