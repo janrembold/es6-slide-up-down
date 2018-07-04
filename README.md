@@ -1,60 +1,65 @@
-# es6-scroll-to
-Vanilla JavaScript micro function for animated scrolling written in ES6. Supports jQuery easing functions. 
+# es6-slide-up-down
+Vanilla JavaScript micro function for animated slideUp/slideDown of elements written in ES6. The behavior equals jQuerys' slideUp and slideDown methods.
+It uses requestAnimationFrame and has no external dependencies.
 
-See demo here: https://janrembold.github.io/es6-scroll-to/example/
+See demo here: https://janrembold.github.io/es6-slide-up-down/example/
 
 ## Installation
 
 ```
-yarn add es6-scroll-to
+yarn add es6-slide-up-down
 
 // or
 
-npm install es6-scroll-to
+npm install es6-slide-up-down
 ```
 
 ## Usage
 
 ```javascript
-import {animatedScrollTo} from 'es6-scroll-to';
+import {slideUp, slideDown} from 'es6-slide-up-down';
 
-// shorthand - setting target Y-Offset directly
-animatedScrollTo(600);
+// grab some html element
+const element = document getElementById('someElement');
+
+// shorthand - slide up (close) element - Defaults: duration: 400ms, easing: easeOutQuad
+slideUp(element);
 
 // ...equals to 
-animatedScrollTo({
-    to: 600
+slideUp(element, {
+    duration: 400
 });
 
 // change animation duration [in ms]
-animatedScrollTo({
-    duration: 1000,
-    to: 600
+slideUp(element, 1000);
+
+// ...equals to
+slideUp(element, {
+    duration: 1000
 });
 
-// change easing functions, see https://github.com/janrembold/es6-easings
+// change easing function, see https://github.com/janrembold/es6-easings
 import {easeInQuint} from 'es6-easings';
-animatedScrollTo({
+slideUp({
     easing: easeInQuint,
     to: 600
 });
+
+// slideDown has exactly the same options and usage
 
 ```
 
 ## Options
 
-The `animatedScrollTo` method takes a single parameter that might be an `Object` or the target Y-Offset as positive `Integer`.
+The `slideUp` and `slideDown` methods take a single HTML element as first parameter.
+Second and optional parameter might be an `Object` or the animation duration as positive `Integer`.
 
 ```
 {
-    to: [Number], // required
     duration: [Integer], // optional, defaults to 400
     easing: [function] // optional, defaults to 'easeOutQuad'    
 }
 ```
-
-### `to` (required)
-The target Y-Offset as positive `Integer`
 
 ### `duration` (optional)
 The animation duration in milliseconds. Defaults to `400`
