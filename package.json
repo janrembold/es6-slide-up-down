@@ -1,11 +1,11 @@
 {
-  "name": "es6-scroll-to",
-  "version": "1.1.2",
-  "description": "Vanilla JavaScript micro function for animated scrolling written in ES6",
+  "name": "es6-slide-up-down",
+  "version": "1.0.0",
+  "description": "Vanilla JavaScript micro function for animated slideUp/slideDown of elements written in ES6",
   "main": "lib/index.js",
   "module": "lib/index.js",
   "types": "lib/index.d.ts",
-  "repository": "https://github.com/janrembold/es6-scroll-to.git",
+  "repository": "https://github.com/janrembold/es6-slide-up-down.git",
   "author": "janrembold <janrembold@gmx.net>",
   "license": "MIT",
   "scripts": {

@@ -42,9 +42,9 @@
         }
         const currentTime = now - options.startTime;
         let animationContinue = currentTime < options.duration;
-        let newHeight = Math.round(options.easing(currentTime, options.startingHeight, options.distanceHeight, options.duration));
+        let newHeight = options.easing(currentTime, options.startingHeight, options.distanceHeight, options.duration);
         if (animationContinue) {
-            element.style.height = `${Math.round(newHeight)}px`;
+            element.style.height = `${newHeight.toFixed(2)}px`;
             window.requestAnimationFrame((timestamp) => animate(element, options, timestamp));
         }
         else {
@@ -89,8 +89,10 @@
         return extendedOptions;
     };
 
-    const easeInQuint = (t, b, c, d) => {
-        return c * (t /= d) * t * t * t * t + b;
+    const easeInOutQuad = (t, b, c, d) => {
+        if ((t /= d / 2) < 1)
+            return c / 2 * t * t + b;
+        return -c / 2 * ((--t) * (t - 2) - 1) + b;
     };
 
     var targetElements = document.getElementsByClassName('panel');
@@ -103,10 +105,7 @@
             for (var _iterator = targetElements[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
                 var element = _step.value;
 
-                slideUp(element, {
-                    duration: 4000,
-                    easing: easeInQuint
-                });
+                slideUp(element, 400);
             }
         } catch (err) {
             _didIteratorError = true;
@@ -133,7 +132,8 @@
                 var element = _step2.value;
 
                 slideDown(element, {
-                    duration: 4000
+                    duration: 1000,
+                    easing: easeInOutQuad
                 });
             }
         } catch (err) {

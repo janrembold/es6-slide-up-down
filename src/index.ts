@@ -21,6 +21,7 @@ const directions: slideDirection = {
     CLOSE: 2
 };
 
+
 export const slideUp = (element: HTMLElement, args: number|slideOptions = {}) => {
     if(isInteger(args)) {
         args = { duration: <number>args };
@@ -61,15 +62,15 @@ const animate = (element: HTMLElement, options: any, now: number) => {
 
     const currentTime = now - options.startTime;
     let animationContinue = currentTime < options.duration;
-    let newHeight: number = Math.round(options.easing(
+    let newHeight: number = options.easing(
         currentTime, 
         options.startingHeight, 
         options.distanceHeight,
         options.duration
-    ));
+    );
 
     if(animationContinue) {
-        element.style.height = `${Math.round(newHeight)}px`;
+        element.style.height = `${newHeight.toFixed(2)}px`;
         window.requestAnimationFrame((timestamp: number) => animate(element, options, timestamp));
     } else {
         if(options.direction === directions.CLOSE) {
@@ -82,7 +83,7 @@ const animate = (element: HTMLElement, options: any, now: number) => {
         
         removeElementAnimationStyles(element);
     }
-}
+};
 
 const setElementAnimationStyles = (element: HTMLElement) => {
     element.style.display = 'block';
@@ -91,7 +92,7 @@ const setElementAnimationStyles = (element: HTMLElement) => {
     element.style.marginBottom = '0';
     element.style.paddingTop = '0';
     element.style.paddingBottom = '0';
-}
+};
 
 const removeElementAnimationStyles = (element: HTMLElement) => {
     element.style.height = null;
@@ -100,7 +101,7 @@ const removeElementAnimationStyles = (element: HTMLElement) => {
     element.style.marginBottom = null;
     element.style.paddingTop = null;
     element.style.paddingBottom = null;
-}
+};
 
 const isInteger = (value: any) => {
     if(<any>Number.isInteger) {
